@@ -6,7 +6,8 @@ on:
     branches: ["main", "master"]
   workflow_dispatch:
 
-# Permissões: o 'crachá' de acesso do robô
+
+# Permissões: o 'crachá" de acesso do robô
 permissions:
   contents: read
   pages: write
@@ -19,7 +20,7 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
+    enviroment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
@@ -27,21 +28,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Passo 1: Baixa o seu código para o servidor
-      - name: Checkout
-        uses: actions/checkout@v4
+    #Passo 1: Baixa o seu código para o servidor
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      # Passo 2: Configura o ambiente para o GitHub Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+    #Passo 3: Configura o ambiente para o GitHub Pages
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
 
-      # Passo 3: Empacota o site (HTML/CSS) para o servidor
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: '.'
+    #Passo 4: Empacota o site (HTML/CSS) paa o servidor teste teste
+    - name: Deploy to gitHub Pages
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: '.'
 
-      # Passo 4: Deploy para GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+    #Passo5: Publica o site oficialmente
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
