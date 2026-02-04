@@ -20,6 +20,9 @@
                 <li><a href="#tips">Dicas</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
+            <button class="dark-mode-toggle" id="darkModeToggle" title="Alternar tema">
+                <span class="toggle-icon">🌙</span>
+            </button>
         </nav>
     </header>
 
@@ -153,5 +156,39 @@
     <footer class="footer">
         <p>&copy; 2026 Saúde com Lol. Todos os direitos reservados. | Made with ❤️ para sua saúde</p>
     </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+        // Verificar preferência salva no localStorage
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const htmlElement = document.documentElement;
+        const toggleIcon = document.querySelector('.toggle-icon');
+
+        // Carregar tema salvo ou usar preferência do sistema
+        function initializeDarkMode() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                htmlElement.classList.add('dark-theme');
+                toggleIcon.textContent = '☀️';
+            } else {
+                htmlElement.classList.remove('dark-theme');
+                toggleIcon.textContent = '🌙';
+            }
+        }
+
+        // Toggle tema ao clicar no botão
+        darkModeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-theme');
+            
+            const isDarkMode = htmlElement.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            toggleIcon.textContent = isDarkMode ? '☀️' : '🌙';
+        });
+
+        // Inicializar ao carregar a página
+        initializeDarkMode();
+    </script>
 </body>
 </html>
