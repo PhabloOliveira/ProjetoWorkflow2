@@ -34,7 +34,7 @@ jobs:
 
     #Passo 2: Explora o servidor (opcional)
     - name: Explorando o Runner
-      run: lsb-release-a
+      run: lsb_release -a
 
     #Passo 3: Configura o ambiente para o GitHub Pages
     - name: Setup Pages
