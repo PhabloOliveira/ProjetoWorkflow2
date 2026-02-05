@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 # Gatilhos: Quando o robo deve trabalhar
 on:
   push:
-    branches: ["main", "master"]
+    branches: ["main", "master", "dev/landing"]
   workflow_dispatch:
 
 
