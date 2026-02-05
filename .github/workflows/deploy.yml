@@ -32,6 +32,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    #Passo 2: Explora o servidor (opcional)
+    - name: Explorando o Runner
+      run: lsb-release -a
+
     #Passo 3: Configura o ambiente para o GitHub Pages
     - name: Setup Pages
       uses: actions/configure-pages@v4
