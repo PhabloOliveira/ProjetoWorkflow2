@@ -36,7 +36,7 @@ jobs:
     - name: Explorando o Runner
       run: |
         lsb_release -a
-        run: free -h
+        free -h
 
     #Passo 3: Configura o ambiente para o GitHub Pages
     - name: Setup Pages
