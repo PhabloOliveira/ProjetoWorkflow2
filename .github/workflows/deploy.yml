@@ -65,5 +65,5 @@ jobs:
 
     - name: Checar arquivos estáticos
       run: |
-        ls -
+        ls -R
         echo "Todos os arquivos foram carregados no Runner!"s
