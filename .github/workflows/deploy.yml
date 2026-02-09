@@ -54,7 +54,7 @@ jobs:
       uses: actions/deploy-pages@v4
 
     - name: Validar sintaxe do HTML
-      uses: htmlhint/htmlhint-action@v1
+      uses: htmlhint/htmlhint-action@v4
       with:
         target_pattern: 'index.html'
 
