@@ -32,6 +32,24 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Verificar pasta src
+      run: |
+        if [ -d "src" ]; then
+          echo "Pasta src encontrada!"
+        else
+          echo "Pasta src NÃO encontrada!"
+          exit 1
+        fi
+
+    - name: Verificar arquivo CSS
+      run: |
+        if [ -f "src/css/style.css" ]; then
+          echo "Arquivo src/css/style.css encontrado!"
+        else
+          echo "Arquivo src/css/style.css NÃO encontrado!"
+          exit 1
+        fi
+
     #Passo 2: Explora o servidor (opcional)
     - name: Explorando o Runner
       run: |
