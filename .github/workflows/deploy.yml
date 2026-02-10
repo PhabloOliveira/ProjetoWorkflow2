@@ -71,15 +71,10 @@ jobs:
       id: deployment
       uses: actions/deploy-pages@v4
     
-    # - name: Validar sintaxe do HTML
-    #   run: |
-    #     npm install -g htmlhint
-    #     htmlhint index.html
-
-    - name: Validar HTML com HTMLHint
-      uses: htmlhint/htmlhint-action@v2
-      with:
-        target_pattern: src/index.html
+    - name: Validar sintaxe do HTML
+      run: |
+        npm install -g htmlhint
+        htmlhint src/index.html
 
     - name: Checar arquivos estáticos
       run: |
