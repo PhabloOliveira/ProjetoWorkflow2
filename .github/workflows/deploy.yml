@@ -80,3 +80,6 @@ jobs:
       run: |
         ls -R
         echo "Todos os arquivos foram carregados no Runner!"s
+
+    - name: Frase Final
+      run: echo "O código do aluno Phablo Oliveira foi auditado, está seguindo as normas corretas e está pronto para o deploy!"
