@@ -43,10 +43,10 @@ jobs:
 
     - name: Verificar arquivo CSS
       run: |
-        if [ -f "src/css/style.css" ]; then
-          echo "Arquivo src/css/style.css encontrado!"
+        if [ -f "src/css/styles.css" ]; then
+          echo "Arquivo src/css/styles.css encontrado!"
         else
-          echo "Arquivo src/css/style.css NÃO encontrado!"
+          echo "Arquivo src/css/styles.css NÃO encontrado!"
           exit 1
         fi
 
@@ -71,10 +71,10 @@ jobs:
       id: deployment
       uses: actions/deploy-pages@v4
     
-    - name: Validar sintaxe do HTML
-      run: |
-        npm install -g htmlhint
-        htmlhint index.html
+    - name: Validar HTML com HTMLHint
+      uses: htmlhint/htmlhint-action@v2
+      with:
+        target_pattern: 'src/index.html'
 
     # - name: Validar sintaxe do HTML
     #   uses: htmlhint/htmlhint-action@v2
