@@ -1,0 +1,18 @@
+image: alpine:latest
+
+stages:
+  - test
+
+verificar-arquivos:
+  stage: test
+  script:
+    - echo "Verificando se o arquivo index.html existe..."
+    - test -f src/index.html || (echo "Erro: src/index.html não encontrado" && exit 1)
+    
+    - echo "Verificando se o arquivo não está vazio..."
+    - test -s src/index.html || (echo "Erro: src/index.html está vazio" && exit 1)
+    
+    - echo "Procurando por conteúdo obrigatório (ex: <html)..."
+    - grep -q "<html" src/index.html || (echo "Erro: Tag <html obrigatória não encontrada" && exit 1)
+    
+    - echo "Todos os testes foram executados com sucesso!"
